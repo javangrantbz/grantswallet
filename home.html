@@ -1,0 +1,55 @@
+<ons-page id="home">
+  <ons-toolbar>
+    <div class="center">Grant's Wallet, Budget, and Finances</div>
+  </ons-toolbar>
+  <div class="balance-card-container">
+    <div class="balance-card">
+      <h4>Current Disposal Income</h4>
+      <h3 id="balance">$0.00</h3>
+    </div>
+    <div class="balance-card">
+      <h4>CU Loan Outstanding</h4>
+      <h3 id="javancreditunion_outstanding">$0.00</h3>
+    </div>
+  </div>
+  <ons-list id="recent-transactions">
+    <ons-list-header>Recent Transactions</ons-list-header>
+    <!-- Dynamically populated via JavaScript -->
+  </ons-list>
+  <!-- Floating Action Buttons -->
+  <ons-fab position="bottom right" onclick="showTransactionModal()">
+    <ons-icon icon="md-plus"></ons-icon>
+  </ons-fab>
+  <ons-fab position="bottom left" onclick="reallocateIncome()">
+    <ons-icon icon="md-refresh"></ons-icon>
+  </ons-fab>
+  <!-- Modals -->
+  <ons-modal id="transaction-type-modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Add New Transaction</h3>
+      <ons-list>
+        <ons-list-item tappable onclick="showIncomeStreams()">Income</ons-list-item>
+        <ons-list-item tappable onclick="showExpenses()">Expense</ons-list-item>
+      </ons-list>
+      <ons-button modifier="quiet" onclick="document.getElementById('transaction-type-modal').hide()">Cancel</ons-button>
+    </div>
+  </ons-modal>
+  <ons-modal id="income-modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Select Income Stream</h3>
+      <ons-list id="income-list">
+        <!-- Dynamically populated -->
+      </ons-list>
+      <ons-button modifier="quiet" onclick="document.getElementById('income-modal').hide()">Cancel</ons-button>
+    </div>
+  </ons-modal>
+  <ons-modal id="expense-modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Select Expense</h3>
+      <ons-list id="expense-list">
+        <!-- Dynamically populated -->
+      </ons-list>
+      <ons-button modifier="quiet" onclick="document.getElementById('expense-modal').hide()">Cancel</ons-button>
+    </div>
+  </ons-modal>
+</ons-page>

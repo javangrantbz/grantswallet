@@ -1,0 +1,36 @@
+<ons-page id="reports">
+  <ons-toolbar>
+    <div class="center">Reports</div>
+  </ons-toolbar>  
+  <div class="report-summary">
+    <div class="balance-card">
+      <h4>Total Income</h4>
+      <h4 id="total-income">$0.00</h4>
+    </div>
+    <div class="balance-card">
+      <h4>Total Expenses</h4>
+      <h4 id="total-expenses">$0.00</h4>
+    </div>
+	<div class="balance-card">
+      <h4>Balance</h4>
+      <h4 id="total-balance">$0.00</h4>
+    </div>
+  </div>
+  
+  
+  <ons-list id="category-breakdown">
+    <ons-list-header>Category Breakdown</ons-list-header>
+    <ons-list-item expandable>
+      Income
+      <div class="expandable-content" id="income-breakdown"></div>
+    </ons-list-item>
+    <ons-list-item expandable>
+      Expenses
+      <div class="expandable-content" id="expense-breakdown"></div>
+    </ons-list-item>
+  </ons-list>
+  <ons-list id="report-list">
+    <ons-list-header>Weekly Transactions</ons-list-header>
+  </ons-list>
+
+</ons-page>

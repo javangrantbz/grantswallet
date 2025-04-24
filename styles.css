@@ -1,0 +1,595 @@
+:root {
+  --deep-green: #12540A;
+  --dark-green: #0A2F05;
+  --soft-gold: #FFD700;
+  --off-white: #F9FAFB;
+  --dark-gray: #333333;
+  --light-gray: #FFFFFF;
+  --light-gold: #FFE082;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Tabbar (Home, Reports, Settings) */
+ons-tabbar.tabbar[position="bottom"] {
+  background: linear-gradient(to right, var(--deep-green), var(--dark-green));
+  border-top: none;
+  padding-bottom: 2px;
+}
+.report-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  flex-wrap: nowrap;
+}
+
+.reports-card, .balance-card {
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-width: 0;
+}
+
+.reports-card h3, .balance-card h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.reports-card h1, .balance-card h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+
+/* Target ons-tab directly with high specificity */
+ons-tabbar.tabbar[position="bottom"] ons-tab.tabbar__item {
+  color: white !important; /* Force white for inactive tabs */
+  font-weight: 200; /* Bolder */
+  transition: color 0.3s ease;
+}
+
+ons-tabbar.tabbar[position="bottom"] ons-tab.tabbar__item[active] {
+  color: white !important; /* Force white for active tabs */
+  font-weight: 700; /* Even bolder */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Depth */
+}
+
+/* Explicitly target icons */
+ons-tabbar.tabbar[position="bottom"] ons-tab.tabbar__item .tabbar__icon,
+ons-tabbar.tabbar[position="bottom"] ons-tab.tabbar__item .tabbar__icon ons-icon {
+  color: white !important; /* Force white for icons */
+  font-size: 2em; /* Keep bigger */
+  margin-bottom: 4px; /* Spacing */
+}
+
+/* Explicitly target labels */
+ons-tabbar.tabbar[position="bottom"] ons-tab.tabbar__item .tabbar__label {
+  color: white !important; /* Force white for labels */
+  font-size: 1.2em; /* Keep bigger */
+  font-weight: inherit; /* Matches tab’s boldness */
+}
+
+/* Settings Inner Tabbar (Income, Expenses) */
+ons-page#settings ons-tabbar {
+  background: linear-gradient(to right, var(--deep-green), var(--dark-green));
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+ons-page#settings ons-tab {
+  color: var(--light-gold) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 10px;
+  text-align: center;
+}
+
+ons-page#settings ons-tab[active] {
+  color: var(--soft-gold) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  border-bottom: 2px solid var(--soft-gold);
+}
+
+/* Page Background */
+.page__background {
+  background-color: #fff !important;
+}
+
+/* Toolbar */
+.toolbar {
+  background: var(--deep-green);
+  box-shadow: var(--shadow);
+}
+
+.toolbar__center {
+  color: white;
+  font-weight: 500;
+}
+
+/* Balance Card Container for Side-by-Side Layout */
+.balance-card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+/* Balance Card */
+.balance-card {
+  background: linear-gradient(to bottom, var(--deep-green), var(--dark-green));
+  color: white;
+  padding: 4px;
+  border-radius: 5px;
+  margin: 0px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  flex: 1;
+  min-width: 100px;
+  max-width: calc(50% - 10px);
+}
+
+.balance-card h4 {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.balance-card h3 {
+  margin: 0;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.balance-card h1 {
+  margin: 8px 0 0;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+/* Existing Balance Card Typography (unchanged) */
+.balance-card h2 {
+  margin: 0;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.balance-card h1 {
+  margin: 8px 0 0;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+/* Expense Item */
+.expense-item {
+  background-color: white;
+  border: 0.5px solid rgba(18, 84, 10, 0.2); /* Adjusted to match deep-green */
+  border-radius: 8px;
+  margin: 8px 15px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.expense-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.expense-item span {
+  color: var(--deep-green);
+  font-weight: 600;
+  background: rgba(255, 215, 0, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* List Header and Items */
+.list-header {
+  background-color: var(--deep-green);
+  color: white;
+  padding: 6px 10px;
+  font-size: 1em;
+}
+
+.list-item {
+  background-color: white;
+  margin: 6px 10px;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+/* Text Input */
+.text-input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid rgba(18, 84, 10, 0.3); /* Adjusted to match deep-green */
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--dark-gray);
+}
+
+/* Buttons */
+.button--quiet {
+  color: var(--soft-gold);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.button--quiet:hover {
+  color: #FFC107;
+}
+
+.list-item strong {
+  color: var(--deep-green);
+}
+
+/* Floating Action Button */
+.fab {
+  background: var(--deep-green);
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease;
+}
+
+.fab:hover {
+  background: var(--dark-green);
+}
+
+.fab[position="bottom right"] {
+  bottom: 15px;
+  right: 15px;
+}
+
+.fab[position="bottom left"] {
+  bottom: 15px;
+  left: 15px;
+}
+
+.fab ons-icon {
+  color: var(--soft-gold);
+}
+
+/* Modal Styles */
+.modal-content {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  max-width: 70%;
+  margin: 15px auto;
+}
+
+.modal-content h3 {
+  color: var(--deep-green);
+  margin: 0 0 10px;
+  font-size: 1.1em;
+}
+
+.modal-content ons-list-item {
+  border-bottom: 1px solid rgba(18, 84, 10, 0.2); /* Adjusted */
+  padding: 8px 0;
+}
+
+.modal-content ons-list-item:last-child {
+  border-bottom: none;
+}
+
+.modal-content ons-button {
+  margin-top: 10px;
+}
+
+/* List Header for Recent Transactions */
+#recent-transactions ons-list-header {
+  background-color: transparent; /* Remove green background */
+  color: var(--deep-green); /* Green text */
+  padding: 6px 10px;
+  font-size: 1em;
+  position: relative; /* For positioning the underline */
+  text-align: left; /* Ensure text alignment */
+}
+
+/* Half-width underline */
+#recent-transactions ons-list-header::after {
+  content: '';
+  display: block;
+  width: 50%; /* Half the width */
+  height: 2px; /* Thickness of the line */
+  background-color: var(--deep-green); /* Green line */
+  position: absolute;
+  bottom: 0;
+  left: 10px; /* Align with padding */
+}
+
+/* List Header for report list Transactions */
+#report-list ons-list-header {
+  background-color: transparent; /* Remove green background */
+  color: var(--deep-green); /* Green text */
+  padding: 6px 10px;
+  font-size: 1em;
+  position: relative; /* For positioning the underline */
+  text-align: left; /* Ensure text alignment */
+}
+
+/* Half-width underline */
+#report-list ons-list-header::after {
+  content: '';
+  display: block;
+  width: 50%; /* Half the width */
+  height: 2px; /* Thickness of the line */
+  background-color: var(--deep-green); /* Green line */
+  position: absolute;
+  bottom: 0;
+  left: 10px; /* Align with padding */
+}
+
+/* Existing List Header (for other headers, if any) */
+.list-header {
+  background-color: var(--deep-green);
+  color: white;
+  padding: 6px 10px;
+  font-size: 1em;
+}
+
+/* Existing Recent Transactions List Items (unchanged) */
+#recent-transactions ons-list-item {
+  background-color: white;
+  border: 1px solid rgba(18, 84, 10, 0.2);
+  border-radius: 6px;
+  margin: 4px 10px;
+  padding: 4px 4px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+#recent-transactions ons-list-item.income {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+#recent-transactions ons-list-item.expense {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+#recent-transactions ons-list-item > div:first-child {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#recent-transactions ons-list-item > div:last-child {
+  flex-shrink: 0;
+  text-align: left;
+  display: block;
+}
+
+#recent-transactions .transaction-amount {
+  color: var(--soft-gold);
+  font-weight: 600;
+  margin-right: 5px;
+  display: block;
+}
+
+#recent-transactions .transaction-date {
+  color: var(--dark-gray);
+  font-size: 0.8em;
+}
+
+#recent-transactions ons-list-item ons-button {
+  background: transparent;
+  color: #F44336;
+  border: none;
+  padding: 0 8px;
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+#recent-transactions ons-list-item ons-button:hover {
+  color: #D32F2F;
+}
+
+/* Content */
+.content {
+  width: 70%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.content h3 {
+  color: var(--deep-green);
+  margin: 10px 0 5px;
+}
+
+.content ons-input {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.content ons-button {
+  background: var(--deep-green);
+  color: white;
+  margin: 5px 0;
+}
+
+.content ons-select {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+/* Budget Goals */
+#budget-goals {
+  margin-top: 10px;
+}
+
+#budget-goals ons-list-item {
+  background-color: white;
+  border: 1px solid rgba(18, 84, 10, 0.2); /* Adjusted */
+  border-radius: 6px;
+  margin: 4px 0;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+#budget-goals .goal-amount {
+  color: #4CAF50; /* Kept green for positive connotation */
+}
+
+#budget-goals ons-button {
+  background: transparent;
+  color: #F44336;
+  border: none;
+  padding: 0 8px;
+  font-size: 0.8em;
+}
+
+/* Income Streams and Expense Categories */
+#income-streams, #expense-categories {
+  margin-top: 10px;
+}
+
+#income-streams ons-list-item, #expense-categories ons-list-item {
+  background-color: white;
+  border: 1px solid rgba(18, 84, 10, 0.2); /* Adjusted */
+  border-radius: 6px;
+  margin: 4px 0;
+  padding: 6px 8px;
+  font-size: 0.9em;
+  color: var(--dark-gray);
+}
+
+#income-streams ons-list-item {
+  color: var(--soft-gold);
+}
+
+#expense-categories ons-list-item {
+  color: var(--deep-green);
+}
+
+/* Swipeable Items */
+ons-list-item[swipeable] .swipeable-content {
+  background: white;
+  color: var(--dark-gray);
+  padding: 6px 8px;
+  border: 1px solid rgba(18, 84, 10, 0.2); /* Adjusted */
+  border-radius: 6px;
+}
+
+ons-list-item[swipeable] .swipeable-action {
+  background: #ff4444;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+}
+
+/* Savings Goals */
+#savings-goals ons-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#savings-goals ons-progress-bar {
+  width: 100px;
+  margin: 0 10px;
+}
+
+#savings-goals ons-button {
+  background: var(--deep-green);
+  color: var(--soft-gold);
+}
+
+/* Dialogs */
+ons-dialog {
+  background: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  max-width: 70%;
+  margin: 15px auto;
+}
+
+.dialog-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.dialog-content h3 {
+  color: var(--deep-green);
+  margin: 0 0 10px;
+}
+
+.dialog-content ons-input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 6px;
+  border: 1px solid rgba(18, 84, 10, 0.3); /* Adjusted */
+  border-radius: 4px;
+}
+
+.dialog-content ons-input input {
+  color: var(--dark-gray);
+}
+
+.dialog-content ons-select {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.dialog-content ons-select select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid rgba(18, 84, 10, 0.3); /* Adjusted */
+  border-radius: 4px;
+  color: var(--dark-gray);
+}
+
+.dialog-actions {
+  margin-top: 10px;
+}
+
+.dialog-actions ons-button {
+  background: var(--deep-green);
+  color: white;
+  margin: 0 5px;
+}
+
+/* Toggle Section */
+.toggle-section {
+  margin-top: 10px;
+}
+
+.toggle-section ons-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  background: var(--deep-green);
+  color: var(--soft-gold);
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.toggle-section ons-button:hover {
+  background: var(--dark-green);
+}
+
+/* Collapsible List */
+.collapsible-list {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.collapsible-list.collapsed {
+  max-height: 0;
+}

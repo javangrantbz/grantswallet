@@ -1,0 +1,42 @@
+<ons-page id="settings">
+  <ons-toolbar>
+    <div class="center">Settings</div>
+  </ons-toolbar>
+  <div class="content">
+    <h3>Add Income Stream</h3>
+    <ons-input id="new-income" placeholder="Income name"></ons-input>
+    <ons-button onclick="addIncome()">Add Income</ons-button>
+
+    <div class="toggle-section">
+      <ons-button modifier="quiet" onclick="toggleList('income-streams')" id="income-toggle">Current Income Streams ▲</ons-button>
+      <ons-list id="income-streams" class="collapsible-list collapsed">
+        <!-- Dynamically populated -->
+      </ons-list>
+    </div>
+
+    <h3>Add Expense Category</h3>
+    <ons-input id="new-expense" placeholder="Expense name"></ons-input>
+    <ons-button onclick="addExpense()">Add Expense</ons-button>
+
+    <div class="toggle-section">
+      <ons-button modifier="quiet" onclick="toggleList('expense-categories')" id="expense-toggle">Current Expense Categories ▲</ons-button>
+      <ons-list id="expense-categories" class="collapsible-list collapsed">
+        <!-- Dynamically populated -->
+      </ons-list>
+    </div>
+
+    <h3>Set Budget Goal</h3>
+    <ons-input id="goal-category" placeholder="Expense category"></ons-input>
+    <ons-input id="goal-amount" type="number" placeholder="Amount"></ons-input>
+    <ons-select id="goal-period">
+      <option value="month" selected>Monthly</option>
+      <option value="week">Weekly</option>
+    </ons-select>
+    <ons-button onclick="addBudgetGoal()">Set Goal</ons-button>
+
+    <ons-list id="budget-goals">
+      <ons-list-header>Current Budget Goals</ons-list-header>
+      <!-- Dynamically populated -->
+    </ons-list>
+  </div>
+</ons-page>
